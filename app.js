@@ -10,6 +10,9 @@ const app = express()
 //import json to receive requirements in json format
 app.use(express.json())
 
+//Enable cors
+app.use('*', cors());
+
 //controller
 const { globalErrorHandler } = require('./controllers/error.controller')
 
