@@ -18,9 +18,10 @@ const { globalErrorHandler } = require('./controllers/error.controller')
 
 //router
 const { userRouter } = require('./routes/users.routes')
+const { publishRouter } = require('./routes/publish.routes');
 
 //util
-const { AppError } = require('./util/AppError')
+const { AppError } = require('./util/AppError');
 
 //swagger
 const swaggerSpec = {
@@ -53,7 +54,7 @@ const swaggerSpec = {
 //routes
 app.use('/api/v1/users', userRouter)
 //app.post('/api/v1/checkout', checkout)
-//app.use('/api/v1/adminuser', adminUsersRouter)
+app.use('/api/v1/publish', publishRouter)
 //app.use('/api/v1/employed', employedUsersRouter)
 app.use('/api/v1/doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
 app.use('*', (req, res, next) => {

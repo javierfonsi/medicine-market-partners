@@ -6,6 +6,7 @@ const { User } = require('../models/users.models');
 const { catchAsync } = require('../util/catchAsync');
 const { AppError } = require('../util/AppError');
 const { filterObject } = require('../util/filterObject');
+const { Op } = require("sequelize");
 
 dotenv.config({ path: './config.env' });
 
@@ -80,7 +81,7 @@ exports.loginUser = catchAsync(async (req, res, next) => {
 exports.getAllUser = catchAsync(async (req, res, next) => {
   const allUser = await User.findAll({ 
     attributes: { exclude: ['password']},
-    where: { status: 'active' } 
+    where: { status: 'active', [Op.not]: [{id: [req.currentUser.id]}] }, 
   });
 
   res.status(200).json({
