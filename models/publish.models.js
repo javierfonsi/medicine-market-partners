@@ -9,7 +9,7 @@ const Publish = sequelize.define('publish', {
         allowNull: false
     },
     product:{
-        type: DataTypes.STRING(255),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     description: {
@@ -17,7 +17,7 @@ const Publish = sequelize.define('publish', {
         allowNull: false
     },
     userId: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     status: {

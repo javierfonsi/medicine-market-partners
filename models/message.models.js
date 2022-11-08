@@ -13,14 +13,12 @@ const Message = sequelize.define('message', {
         allowNull: false
     },
     userId: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
     },
     chatId: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
     },
     status: {
         type: DataTypes.STRING(10),

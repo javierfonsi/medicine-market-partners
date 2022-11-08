@@ -1,7 +1,7 @@
 const { sequelize } = require('../util/database')
 const { DataTypes } = require('sequelize')
 
-const Sales = sequelize.define('sales', {
+const Sale = sequelize.define('sale', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -17,13 +17,12 @@ const Sales = sequelize.define('sales', {
         allowNull: false
     },
     price: {
-        type: DataTypes.INTEGER(10),
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     userId: {
-        type: DataTypes.STRING(50),
+        type: DataTypes.INTEGER,
         allowNull: false,
-        unique: true,
     },
     status: {
         type: DataTypes.STRING(10),
@@ -32,4 +31,4 @@ const Sales = sequelize.define('sales', {
     }
 })
 
-module.exports = { Sales }
+module.exports = { Sale }

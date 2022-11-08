@@ -5,31 +5,13 @@ const dotenv = require('dotenv');
 const { User } = require('../models/users.models');
 const { catchAsync } = require('../util/catchAsync');
 const { AppError } = require('../util/AppError');
-const { filterObject } = require('../util/filterObject');
+//const { filterObject } = require('../util/filterObject');
 const { Op } = require("sequelize");
 
 dotenv.config({ path: './config.env' });
 
 exports.postUser = catchAsync(async (req, res, next) => {
   const { name, lastName, email, password, phone, profile } = req.body;
-  if (
-    !name ||
-    !lastName ||
-    !email ||
-    !password ||
-    !phone ||
-    !profile ||
-    name.length === 0 ||
-    lastName.length === 0 ||
-    email.length === 0 ||
-    password.length === 0 ||
-    phone.length === 0 ||
-    profile.length === 0
-  ) {
-    return next(
-      new AppError(400, 'Some properties and/or their values are inconrrect.')
-    );
-  }
 
   const salt = await bcrypt.genSaltSync(12);
   const hashpassword = await bcrypt.hash(password, salt);

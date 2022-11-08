@@ -12,6 +12,7 @@ protectAccountOwner
 } = require('../middlewares/user.middleware');
 
 const { validateSession } = require('../middlewares/auth.middleware');
+const { createUserValidators, validateResult } = require('../middlewares/validators.middleware');
 
 const router = express.Router();
 
@@ -105,7 +106,7 @@ const router = express.Router();
  *      400:
  *        description: some properties and/or their values are incorrect
  */
-router.post('/', postUser);
+router.post('/', createUserValidators, validateResult, postUser);
 
 //Login adminUser
 /**
