@@ -10,6 +10,9 @@ const app = express()
 //import json to receive requirements in json format
 app.use(express.json())
 
+//enable multipart form/data incoming data (to receive file)
+express.urlencoded({ extended: true });
+
 //Enable cors
 app.use('*', cors());
 
@@ -19,6 +22,7 @@ const { globalErrorHandler } = require('./controllers/error.controller')
 //router
 const { userRouter } = require('./routes/users.routes')
 const { publishRouter } = require('./routes/publish.routes');
+const { saleRouter } = require('./routes/sales.routes');
 
 //util
 const { AppError } = require('./util/AppError');
@@ -55,7 +59,7 @@ const swaggerSpec = {
 app.use('/api/v1/users', userRouter)
 //app.post('/api/v1/checkout', checkout)
 app.use('/api/v1/publish', publishRouter)
-//app.use('/api/v1/employed', employedUsersRouter)
+app.use('/api/v1/sale', saleRouter)
 app.use('/api/v1/doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))
 app.use('*', (req, res, next) => {
     next(new AppError(404, "The `${req.originalUrl}` does not found in this server."))

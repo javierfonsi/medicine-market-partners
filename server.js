@@ -1,5 +1,6 @@
 const { sequelize } = require('./util/database')
-const { app } = require('./app')
+const { app } = require('./app');
+const { initModels } = require('./util/initModels');
 
 //const PORT = process.env.PORT || 4000;
 
@@ -7,6 +8,9 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 4000;
 }
+
+// Models relations
+initModels();
 
 sequelize
     .authenticate()

@@ -52,7 +52,7 @@ router.use(validateSession);
 //Create publish
 /**
  * @swagger
- * /api/v1/publish/:
+ * /api/v1/publish:
  *  post:
  *    security:
  *      - bearerAuth: [] 

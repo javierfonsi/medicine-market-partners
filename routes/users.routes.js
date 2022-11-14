@@ -124,7 +124,7 @@ router.post('/', createUserValidators, validateResult, postUser);
  *                $ref: '#/components/schemas/loggedUser'
  *    responses:
  *      200:
- *        Description: return a valid token  
+ *        description: return a valid token  
  *      201:
  *        description: new adminUser was created!
  *      400:

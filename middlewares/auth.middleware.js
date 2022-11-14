@@ -28,7 +28,7 @@ exports.validateSession = catchAsync(async (req, res, next) => {
   }
 
   // Verify that token is still valid
-  const decodedToken = await promisify(jwt.verify)(
+    const decodedToken = await promisify(jwt.verify)(
     token,
     process.env.JWT_SECRET
   );

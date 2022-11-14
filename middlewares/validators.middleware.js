@@ -68,11 +68,11 @@ exports.createSaleValidators = [
     .withMessage('price must be a number')
     .custom((value) => value > 0)
     .withMessage('price must be greater than 0'),
-  body('userId')
-    .isNumeric()
-    .withMessage('userId must be a number')
-    .custom((value) => value > 0)
-    .withMessage('userId must be greater than 0')
+  //body('userId')
+  //  .isNumeric()
+  //  .withMessage('userId must be a number')
+  //  .custom((value) => value > 0)
+  //  .withMessage('userId must be greater than 0')
 ];
 // END: createSaleValidators
 

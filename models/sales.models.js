@@ -9,7 +9,7 @@ const Sale = sequelize.define('sale', {
         allowNull: false
     },
     product:{
-        type: DataTypes.STRING(255),
+        type: DataTypes.STRING(50),
         allowNull: false
     },
     description: {
@@ -23,6 +23,10 @@ const Sale = sequelize.define('sale', {
     userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
+    },
+    img_Url:{
+        type: DataTypes.STRING(255),
+        allowNull: false
     },
     status: {
         type: DataTypes.STRING(10),
