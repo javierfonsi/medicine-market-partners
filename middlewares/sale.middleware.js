@@ -2,7 +2,7 @@
 const { Sale } = require('../models/sales.models');
 
 // Utils
-const { AppError } = require('../util/appError');
+const { AppError } = require('../util/AppError');
 const { catchAsync } = require('../util/catchAsync');
 
 exports.saleExist = catchAsync(async (req, res, next) => {
