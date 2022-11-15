@@ -80,7 +80,7 @@ router.use(validateSession);
  *        description: The token wasnot delivere.
  */
 router.post('/', createPublishValidators, validateResult, createPublish)
-router.get('/maxpublish', maxpublish);
+//router.get('/maxpublish', maxpublish);
 
 
 module.exports = { publishRouter: router };

@@ -6,10 +6,10 @@ loginUser,
 getAllUser,
 } = require('../controllers/users.controller');
 
-const {
-userExist,
-protectAccountOwner
-} = require('../middlewares/user.middleware');
+//const {
+//userExist,
+//protectAccountOwner
+//} = require('../middlewares/user.middleware');
 
 const { validateSession } = require('../middlewares/auth.middleware');
 const { createUserValidators, validateResult } = require('../middlewares/validators.middleware');

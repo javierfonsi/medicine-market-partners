@@ -4,18 +4,6 @@ const swaggerJsDoc = require('swagger-jsdoc')
 const cors = require('cors');
 const path = require('path')
 
-//init server
-const app = express()
-
-//import json to receive requirements in json format
-app.use(express.json())
-
-//enable multipart form/data incoming data (to receive file)
-express.urlencoded({ extended: true });
-
-//Enable cors
-app.use('*', cors());
-
 //controller
 const { globalErrorHandler } = require('./controllers/error.controller')
 
@@ -54,6 +42,19 @@ const swaggerSpec = {
     },
     apis: [`${path.join(__dirname, './routes/*.js')}`]
   }
+  
+//init server
+const app = express()
+
+//import json to receive requirements in json format
+app.use(express.json())
+
+//enable multipart form/data incoming data (to receive file)
+express.urlencoded({ extended: true });
+
+//Enable cors
+app.use('*', cors());
+
 
 //routes
 app.use('/api/v1/users', userRouter)

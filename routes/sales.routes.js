@@ -14,7 +14,7 @@ deleteSaleById
 //} = require('../middlewares/user.middleware');
 
 const { validateSession } = require('../middlewares/auth.middleware');
-const { createSaleValidators, validateResult } = require('../middlewares/validators.middleware');
+//const { createSaleValidators, validateResult } = require('../middlewares/validators.middleware');
 const { upload } = require('../util/multer');
 const { saleExist } = require('../middlewares/sale.middleware');
 
@@ -209,7 +209,7 @@ router.patch('/:id', upload.single('img_Url'), updateSaleById);
  *      401:
  *        description: The token wasn't delivered Or invalid session.
  */
-router.delete('/', deleteSaleById);
+router.delete('/:id', deleteSaleById);
 
 
 module.exports = {  saleRouter: router };

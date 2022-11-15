@@ -80,7 +80,7 @@ exports.getAllSale = catchAsync(async (req, res, next) => {
 
 exports.getSaleById = catchAsync(async (req, res, next) => {
    const { sale } = req;
-   console.log("Javier ",req.currentUser.id)
+   console.log("Javier ", req.currentUser.id)
 
    const imgRef = ref(storage, sale.img_Url);
    

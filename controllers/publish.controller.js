@@ -20,7 +20,7 @@ exports.createPublish = catchAsync(async (req, res, next) => {
     });
   });
 
-exports.maxpublish = catchAsync( async (req, res, next) =>  {
-    const publish = await Publish.findAll({ where: { status: 'active'} })
+//exports.maxpublish = catchAsync( async (req, res, next) =>  {
+//    const publish = await Publish.findAll({ where: { status: 'active'} })
 
-})
+//})
