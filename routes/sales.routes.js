@@ -8,10 +8,10 @@ updateSaleById,
 deleteSaleById
 } = require('../controllers/sales.controller');
 
-const {
-userExist,
-protectAccountOwner
-} = require('../middlewares/user.middleware');
+//const {
+//userExist,
+//protectAccountOwner
+//} = require('../middlewares/user.middleware');
 
 const { validateSession } = require('../middlewares/auth.middleware');
 const { createSaleValidators, validateResult } = require('../middlewares/validators.middleware');

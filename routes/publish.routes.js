@@ -1,11 +1,11 @@
 const express = require('express');
 const { createPublish, maxpublish } = require('../controllers/publish.controller');
 
-const {
-postUser,
-loginUser,
-getAllUser,
-} = require('../controllers/users.controller');
+//const {
+//postUser,
+//loginUser,
+//getAllUser,
+//} = require('../controllers/users.controller');
 
 
 const { validateSession } = require('../middlewares/auth.middleware');
