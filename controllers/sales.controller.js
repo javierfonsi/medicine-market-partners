@@ -4,6 +4,7 @@ const { AppError } = require('../util/AppError');
 const { Sale } = require('../models/sales.models');
 const { filterObject } = require('../util/filterObject');
 const { storage } = require('../util/firebase');
+const { User } = require('../models/users.models');
 
 exports.postSale = catchAsync(async (req, res, next) => {
     const { product, description, price, img_Url } = req.body;
@@ -79,10 +80,14 @@ exports.getAllSale = catchAsync(async (req, res, next) => {
 });
 
 exports.getSaleById = catchAsync(async (req, res, next) => {
-   const { sale } = req;
-   console.log("Javier ", req.currentUser.id)
+   const { id } = req.sale;
+   //console.log(req.sale.img_Url, req.sale.product, "vamos bien")
 
-   const imgRef = ref(storage, sale.img_Url);
+   let currentSale = await Sale.findOne({
+      where: {id, status: 'active'}, include: [{model : User}]  
+    })
+
+   const imgRef = ref(storage, currentSale.img_Url);
    
    currentSale.img_Url = await getDownloadURL(imgRef);
 

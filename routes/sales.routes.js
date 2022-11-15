@@ -137,7 +137,7 @@ router.get('/', getAllSale);
  *        description: according to sale id
  *    responses:
  *      200:
- *        description: Return a sale
+ *        description: Return all sale from delivered id
  *        content:
  *          application/json:
  *            schema:
