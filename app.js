@@ -11,6 +11,8 @@ const { globalErrorHandler } = require('./controllers/error.controller')
 const { userRouter } = require('./routes/users.routes')
 const { publishRouter } = require('./routes/publish.routes');
 const { saleRouter } = require('./routes/sales.routes');
+const { messageRouter } = require('./routes/messages.routes');
+const { chatRouter } = require('./routes/chats.routes');
 
 //util
 const { AppError } = require('./util/AppError');
@@ -58,7 +60,8 @@ app.use('*', cors());
 
 //routes
 app.use('/api/v1/users', userRouter)
-//app.post('/api/v1/checkout', checkout)
+app.use('/api/v1/message', messageRouter)
+app.use('/api/v1/chat', chatRouter)
 app.use('/api/v1/publish', publishRouter)
 app.use('/api/v1/sale', saleRouter)
 app.use('/api/v1/doc', swaggerUI.serve, swaggerUI.setup(swaggerJsDoc(swaggerSpec)))

@@ -7,7 +7,7 @@ const { storage } = require('../util/firebase');
 const { User } = require('../models/users.models');
 
 exports.postSale = catchAsync(async (req, res, next) => {
-    const { product, description, price, img_Url } = req.body;
+    const { product, description, price } = req.body;
     const { id } = req.currentUser;
  
     // Upload img to Cloud Storage (Firebase)

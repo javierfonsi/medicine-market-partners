@@ -14,11 +14,15 @@ deleteSaleById
 //} = require('../middlewares/user.middleware');
 
 const { validateSession } = require('../middlewares/auth.middleware');
-//const { createSaleValidators, validateResult } = require('../middlewares/validators.middleware');
+const { createSaleValidators, validateResult } = require('../middlewares/validators.middleware');
 const { upload } = require('../util/multer');
 const { saleExist } = require('../middlewares/sale.middleware');
 
 const router = express.Router();
+
+//*          userId:
+//*              type: integer
+//*              description: According to token delivered by user.
 
 //Sale schema
 /**
@@ -44,9 +48,6 @@ const router = express.Router();
  *          price:
  *              type: integer
  *              description: According to price product.
- *          userId:
- *              type: integer
- *              description: According to token delivered by user.
  *          img_Url:
  *              type: string
  *              format: base64
@@ -90,8 +91,8 @@ const router = express.Router();
  */
 router.use(validateSession);
 
-//router.post('/', createSaleValidators, validateResult, upload.single('img_Url'), postSale);
-router.post('/', upload.single('img_Url'), postSale);
+router.post('/', createSaleValidators, validateResult, upload.single('img_Url'), postSale);
+//router.post('/', upload.single('img_Url'), postSale);
 
 // get all sale
 /**

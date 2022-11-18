@@ -1,23 +1,26 @@
 const { sequelize } = require('../util/database')
 const { DataTypes } = require('sequelize')
 
-const Message = sequelize.define('message', {
+const Chat = sequelize.define('chat', {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
-        allowNull: false
+        al1lowNull: false
     },
-    userId: {
-        type: DataTypes.STRING(50),
+    userIdDestination: {
+        type: DataTypes.STRING(15),
         allowNull: false,
-        unique: true,
     },
-    userDestination: {
-        type: DataTypes.STRING(50),
+    userIdOrigin: {
+        type: DataTypes.STRING(15),
         allowNull: false,
-        unique: true,
+    },
+    status: {
+        type: DataTypes.STRING(10),
+        allowNull: false,
+        defaultValue: 'active'
     }
 })
 
-module.exports = { Message }
+module.exports = { Chat }

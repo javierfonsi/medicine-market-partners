@@ -35,7 +35,7 @@ exports.createUserValidators = [
 ];
 // END: user validators
 
-// Products validators
+// Publish validators
 exports.createPublishValidators = [
   body('product')
     .isString()
@@ -68,11 +68,6 @@ exports.createSaleValidators = [
     .withMessage('price must be a number')
     .custom((value) => value > 0)
     .withMessage('price must be greater than 0'),
-  //body('userId')
-  //  .isNumeric()
-  //  .withMessage('userId must be a number')
-  //  .custom((value) => value > 0)
-  //  .withMessage('userId must be greater than 0')
 ];
 // END: createSaleValidators
 
@@ -83,11 +78,11 @@ exports.createMessageValidators = [
     .withMessage('text must be a string')
     .notEmpty()
     .withMessage('Must provide a valid text'),
-  body('userId')
-    .isNumeric()
-    .withMessage('userId must be a number')
-    .custom((value) => value > 0)
-    .withMessage('userId must be greater than 0'),
+  //body('userId')
+  //  .isNumeric()
+  //  .withMessage('chatId must be a number')
+  //  .custom((value) => value > 0)
+  //  .withMessage('chatId must be greater than 0'),
   body('chatId')
     .isNumeric()
     .withMessage('chatId must be a number')
