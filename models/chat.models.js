@@ -9,11 +9,11 @@ const Chat = sequelize.define('chat', {
         al1lowNull: false
     },
     userIdDestination: {
-        type: DataTypes.STRING(15),
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     userIdOrigin: {
-        type: DataTypes.STRING(15),
+        type: DataTypes.INTEGER,
         allowNull: false,
     },
     status: {

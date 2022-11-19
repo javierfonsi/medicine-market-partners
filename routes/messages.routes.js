@@ -147,7 +147,7 @@ router.get('/', getAllMessage);
  *  get:
  *    security:
  *      - bearerAuth: []
- *    summary: returns a selected id message which status is active
+ *    summary: returns all message from chat id selected with status is active
  *    tags: [message]
  *    parameters:
  *      - in: path

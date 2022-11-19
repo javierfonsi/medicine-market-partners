@@ -92,6 +92,8 @@ const router = express.Router();
  *                type: object
  *                $ref: '#/components/schemas/chat'
  *    responses:
+ *      200:
+ *        description: the chat was created previously
  *      201:
  *        description: new chat was created!
  *      400:

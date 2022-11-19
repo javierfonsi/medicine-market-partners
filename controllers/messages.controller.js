@@ -8,7 +8,8 @@ const { Chat } = require('../models/chat.models');
 exports.postMessage = catchAsync(async (req, res, next) => {
   //const { text, userId, chatId, } = req.body;
   const { text, chatId } = req.body;
-  let { phone: userIdOrigin, id } = req.currentUser
+  //let { phone: userIdOrigin, id } = req.currentUser
+  let { id: userIdOrigin } = req.currentUser
   //console.log(typeOf(chatId))
 
   let chats = await Chat.findOne({
@@ -34,7 +35,7 @@ exports.postMessage = catchAsync(async (req, res, next) => {
 
   const message = await Message.create({
     text, 
-    userId: +id, 
+    userId: +userIdOrigin, 
     chatId
   });
 
