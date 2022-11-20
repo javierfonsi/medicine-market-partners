@@ -57,6 +57,27 @@ exports.getAllChat = catchAsync(async (req, res, next) => {
   });
 });
 
+exports.getAllOwnerChat = catchAsync(async (req, res, next) => {
+  const { id } = req.currentUser
+  const allOwnerChat = await Chat.findAll({ 
+    where: { status: 'active', 
+    [Op.or] : [ 
+      {
+        userIdDestination: +id
+      }, 
+      {
+        userIdOrigin: +id
+      }
+    ]} 
+    //userIdOrigin: +id
+  });
+
+  res.status(200).json({
+    status: 'Success',
+    data: { allOwnerChat }
+  });
+});
+
 exports.getChatById = catchAsync( async(req, res, next) => {
     const { id } = req.chat
     const chat = await Chat.findOne({

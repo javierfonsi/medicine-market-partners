@@ -5,7 +5,8 @@ postChat,
 getAllChat,
 getChatById,
 updateChatById,
-deleteChatById
+deleteChatById,
+getAllOwnerChat
 } = require('../controllers/chats.controller');
 
 //const {
@@ -131,6 +132,32 @@ router.post('/', postChat);
  */
 
 router.get('/', getAllChat);
+
+// get all my chat
+/**
+ * @swagger
+ * /api/v1/chat/owner:
+ *  get:
+ *    security:
+ *      - bearerAuth: []
+ *    summary: returns all chat from logged user which status is active
+ *    tags: [chat]
+ *    responses:
+ *      200:
+ *        description: Return all chat
+ *        content:
+ *          application/json:
+ *              schema:
+ *                  type: array
+ *                  items:
+ *                    $ref: '#/components/schemas/chatCreated'
+ *      401:
+ *        description: The token wasn't delivered Or invalid session.
+ *      404:
+ *        description: There are not chats until.
+ */
+
+ router.get('/owner', getAllOwnerChat);
 
 // get chat by Id
 /**
